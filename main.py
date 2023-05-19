@@ -138,34 +138,28 @@ if loop == "yes" or loop == "y":
     else:
       print("you cannot use this command with that standard access.")
   if command == "disk storage" or command == "disk" or command == "ds":
+    import shutil
+
     def get_disk_usage():
         try:
-            total, used, free = psutil.disk_usage('/')
+            total, used, free = shutil.disk_usage('/')
             return total, used, free
-        except ValueError:
+        except Exception as e:
             print("Unable to retrieve disk usage information.")
+            print(e)
             return None
-    
-    def get_disk_space():
-        try:
-            total, used, free = psutil.disk_usage('/')
-            return total, free
-        except ValueError:
-            print("Unable to retrieve disk space information.")
-            return None
-    
-    disk_usage = get_disk_usage()
-    if disk_usage is not None:
-        total_size, used_size, free_size = disk_usage
-        print(f"Total disk size: {total_size // (2**30)} GB")
-        print(f"Used disk space: {used_size // (2**30)} GB")
-        print(f"Free disk space: {free_size // (2**30)} GB")
-    
-    disk_space = get_disk_space()
-    if disk_space is not None:
-        total_space, free_space = disk_space
-        print(f"Total disk space: {total_space // (2**30)} GB")
-        print(f"Free disk space: {free_space // (2**30)} GB")
+
+    def print_disk_information():
+        disk_usage = get_disk_usage()
+        if disk_usage is not None:
+            total_size = disk_usage.total
+            used_size = disk_usage.used
+            free_size = disk_usage.free
+            print(f"Total disk size: {total_size // (2**30)} GB")
+            print(f"Used disk space: {used_size // (2**30)} GB")
+            print(f"Free disk space: {free_size // (2**30)} GB")
+
+    print_disk_information()
 
   if command == "pc proccess" or command == "proccess" or command == "proc":
     import wmi
