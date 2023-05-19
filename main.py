@@ -7,6 +7,7 @@ import colorama
 from colorama import Fore
 import psutil
 import os
+print("test")
 
 print("░░░░░░░▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▄░░░░░░")
 print("░░░░░░█░░▄▀▀▀▀▀▀▀▀▀▀▀▀▀▄░░█░░░░░")
