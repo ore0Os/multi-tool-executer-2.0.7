@@ -6,6 +6,7 @@ from turtle import end_fill
 import colorama
 from colorama import Fore
 import psutil
+import os
 
 print("░░░░░░░▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▄░░░░░░")
 print("░░░░░░█░░▄▀▀▀▀▀▀▀▀▀▀▀▀▀▄░░█░░░░░")
@@ -24,7 +25,8 @@ print(name + " welcome!")
 membership_status = input("are you an premium member? yes, no: ")
 if membership_status == "yes":
   membership_code = input("enter your membership code: ")
-  if membership_code == "2009114":
+  membership_code_status = os.getenv('MEMBERSHIP_CODE')
+  if membership_code == membership_code_status:
     print("a valid code detected.")
     print("special functions requast sended.")
     time.sleep(1)
