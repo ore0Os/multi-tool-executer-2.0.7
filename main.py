@@ -139,8 +139,6 @@ if loop == "yes" or loop == "y":
       print("you cannot use this command with that standard access.")
   if command == "disk storage" or command == "disk" or command == "ds":
     import shutil
-    import shutil
-
     def get_disk_usage():
         try:
             total, used, free = shutil.disk_usage('/')
@@ -162,7 +160,6 @@ if loop == "yes" or loop == "y":
     print_disk_information()
   if command == "memory space" or command == "memory" or command == "ms":
    import shutil
-
    def get_memory_usage():
        try:
            memory = shutil.disk_usage('/')
