@@ -139,6 +139,7 @@ if loop == "yes" or loop == "y":
       print("you cannot use this command with that standard access.")
   if command == "disk storage" or command == "disk" or command == "ds":
     import shutil
+    import shutil
 
     def get_disk_usage():
         try:
@@ -152,15 +153,36 @@ if loop == "yes" or loop == "y":
     def print_disk_information():
         disk_usage = get_disk_usage()
         if disk_usage is not None:
-            total_size = disk_usage.total
-            used_size = disk_usage.used
-            free_size = disk_usage.free
-            print(f"Total disk size: {total_size // (2**30)} GB")
-            print(f"Used disk space: {used_size // (2**30)} GB")
-            print(f"Free disk space: {free_size // (2**30)} GB")
-
+           total_size, used_size, free_size = disk_usage
+           print(f"Total disk size: {total_size // (2**30)} GB")
+           print(f"Used disk space: {used_size // (2**30)} GB")
+           print(f"Free disk space: {free_size // (2**30)} GB")
+        else:
+           print("Unable to retrieve disk information.")
     print_disk_information()
+  if command == "memory space" or command == "memory" or command == "ms":
+   import shutil
 
+   def get_memory_usage():
+       try:
+           memory = shutil.disk_usage('/')
+           return memory
+       except Exception as e:
+           print("Unable to retrieve memory usage information.")
+           print(e)
+           return None
+   def print_memory_information():
+       memory_usage = get_memory_usage()
+       if memory_usage is not None:
+          total_memory = memory_usage.total
+          used_memory = memory_usage.used
+          free_memory = memory_usage.free
+          print(f"Total memory: {total_memory // (2**30)} GB")
+          print(f"Used memory: {used_memory // (2**30)} GB")
+          print(f"Free memory: {free_memory // (2**30)} GB")
+       else:
+          print("Unable to retrieve memory information.")
+  print_memory_information()
   if command == "pc proccess" or command == "proccess" or command == "proc":
     import wmi
     f = wmi.WMI()
