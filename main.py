@@ -19,7 +19,7 @@ print("░░░░░▀█░▀▄▀░░░░░█░██░▄░░�
 print("░░░░░▄█▄░░▀▀▀▀▀▀▀▀▄░░▀▀▀▀▀▀▀░▄▀░")
 print("░░░░█░░▄█▀█▀▀█▀▀▀▀▀▀█▀▀█▀█▀▀█░░░")
 print("░░░░▀▀▀▀░░▀▀▀░░░░░░░░▀▀▀░░▀▀░░░░")
-print("command executer vers 2.0.7 python, creator: ore")
+print("command executer vers 2.0.7 python, creator: ore0Os")
 name = input("please enter your name: ")
 print(name + " welcome!")
 membership_status = input("are you an premium member? yes, no: ")
