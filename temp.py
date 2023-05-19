@@ -1,23 +1,26 @@
-import shutil
+import psutil
 
-def get_disk_usage():
+def get_memory_usage():
     try:
-        total, used, free = shutil.disk_usage('/')
-        return total, used, free
+        memory = psutil.virtual_memory()
+        return memory
     except Exception as e:
-        print("Unable to retrieve disk usage information.")
+        print("Unable to retrieve memory usage information.")
         print(e)
         return None
 
-def print_disk_information():
-    disk_usage = get_disk_usage()
-    if disk_usage is not None:
-        total_size, used_size, free_size = disk_usage
-        print(f"Total disk size: {total_size // (2**30)} GB")
-        print(f"Used disk space: {used_size // (2**30)} GB")
-        print(f"Free disk space: {free_size // (2**30)} GB")
+def print_memory_information():
+    memory_usage = get_memory_usage()
+    if memory_usage is not None:
+        total_memory = memory_usage.total
+        used_memory = memory_usage.used
+        free_memory = memory_usage.available
+        print(f"Total memory: {total_memory // (2**30)} GB")
+        print(f"Used memory: {used_memory // (2**30)} GB")
+        print(f"Free memory: {free_memory // (2**30)} GB")
     else:
-        print("Unable to retrieve disk information.")
+        print("Unable to retrieve memory information.")
 
 # Call the function
-print_disk_information()
+print_memory_information()
+
