@@ -25,8 +25,7 @@ print(name + " welcome!")
 membership_status = input("are you an premium member? yes, no: ")
 if membership_status == "yes":
   membership_code = input("enter your membership code: ")
-  membership_code_status = os.getenv('MEMBERSHIP_CODE')
-  if membership_code == membership_code_status:
+  if membership_code == "2009114":
     print("a valid code detected.")
     print("special functions requast sended.")
     time.sleep(1)
