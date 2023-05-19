@@ -193,7 +193,7 @@ if loop == "yes" or loop == "y":
   if command == "list" or command == "commands list" or command == "commands":
     print("those are the following added commands: ")
     print("calculator, looped calculator, spam, random password, change my name, print my name, pc proccess, end process, time, shutdown, restart, close.")
-  if command == "stop" or command == "close" or command == "exit":
+  if command == "stop" or command == "close" or command == "exit" or command == "quit":
     print("exiting...")
     import time
     time.sleep(1.8)
