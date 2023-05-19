@@ -182,7 +182,7 @@ if loop == "yes" or loop == "y":
           print(f"Free memory: {free_memory // (2**30)} GB")
        else:
           print("Unable to retrieve memory information.")
-  print_memory_information()
+   print_memory_information()
   if command == "pc proccess" or command == "proccess" or command == "proc":
     import wmi
     f = wmi.WMI()
