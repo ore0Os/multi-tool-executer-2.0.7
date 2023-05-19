@@ -237,7 +237,7 @@ if loop == "yes" or loop == "y":
     print(name)
   if command == "list" or command == "commands list" or command == "commands":
     print("those are the following added commands: ")
-    print("calculator, looped calculator, spam, random password, change my name, print my name, pc proccess, end process, time, shutdown, restart, close.")
+    print("calculator, looped calculator, spam, random password, disk, memory, change my name, print my name, pc proccess, end process, time, shutdown, restart, close.")
   if command == "stop" or command == "close" or command == "exit" or command == "quit":
     print("exiting...")
     import time
@@ -396,7 +396,7 @@ if loop == "no" or loop == "n":
     os.system("shutdown /r /t 1")   
   if command == "list" or command == "commands list" or command == "commands":
     print("those are the following added commands: ")
-    print("calculator, spam, random password, pc proccess, end process, time, shutdown, close.")
+    print("calculator, spam, random password, disk, memory, pc proccess, end process, time, shutdown, close.")
 print("exiting...")
 import time
 time.sleep(1.8)
