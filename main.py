@@ -197,6 +197,19 @@ if loop == "yes" or loop == "y":
         print(f"No process with the name {process_name} was found.")
         return False
     end_process_by_name(process_name)
+  if command == "auto clicker" or command == "ac":
+     import pyautogui
+     import keyboard
+
+     def auto_click():
+         while True:
+             if keyboard.is_pressed('f6'):  # Check if F6 key is pressed
+                break  # Exit the loop if F6 is pressed
+             x, y = pyautogui.position()  # Get current mouse position
+             pyautogui.click(x, y)  # Perform a mouse click at the current position
+
+     auto_click()
+
   if command == "ai" or command == "aiservice" or command == "artfical intelegent":
     print("under devolopment.")
   if command == "time" or command == "time date" or command == "time and date" or command == "date and time" or command == "date time" or command == "date":
