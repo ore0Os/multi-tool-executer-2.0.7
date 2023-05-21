@@ -202,14 +202,14 @@ if loop == "yes" or loop == "y":
      import keyboard
      delay_speed = input("selcet the delay speed: ")
      print("the action has been started.")
-     def auto_click(delay_speed):
+     def auto_click(delay):
          while True:
              if keyboard.is_pressed('f6'):
                 print("the action has been stoped.")
                 break
              x, y = pyautogui.position()
              pyautogui.click(x, y)    
-             time.sleep(delay_speed)      
+             time.sleep(delay)      
      auto_click(delay_speed)
   if command == "ai" or command == "aiservice" or command == "artfical intelegent":
     print("under devolopment.")
