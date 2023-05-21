@@ -200,15 +200,17 @@ if loop == "yes" or loop == "y":
   if command == "auto clicker" or command == "ac":
      import pyautogui
      import keyboard
+     delay_speed = input("selcet the delay speed: ")
      print("the action has been started.")
-     def auto_click():
+     def auto_click(delay_speed):
          while True:
              if keyboard.is_pressed('f6'):
                 print("the action has been stoped.")
                 break
              x, y = pyautogui.position()
-             pyautogui.click(x, y)
-     auto_click()
+             pyautogui.click(x, y)    
+             time.sleep(delay_speed)      
+     auto_click(delay_speed)
   if command == "ai" or command == "aiservice" or command == "artfical intelegent":
     print("under devolopment.")
   if command == "time" or command == "time date" or command == "time and date" or command == "date and time" or command == "date time" or command == "date":
