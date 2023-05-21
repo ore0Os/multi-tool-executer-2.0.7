@@ -198,19 +198,21 @@ if loop == "yes" or loop == "y":
         return False
     end_process_by_name(process_name)
   if command == "auto clicker" or command == "ac":
-     import pyautogui
-     import keyboard
-     delay_speed = float(input("selcet the delay speed: "))
-     print("the action has been started.")
-     def auto_click(delay):
-         while True:
-             if keyboard.is_pressed('f6'):
-                print("the action has been stoped.")
-                break
-             x, y = pyautogui.position()
-             pyautogui.click(x, y)    
-             time.sleep(delay)      
-     auto_click(delay_speed)
+   import pyautogui
+   import keyboard
+   import time
+
+   delay_speed = float(input("Select the delay speed: "))
+   print("The action has been started.")
+   def auto_click(delay):
+       while True:
+           if keyboard.is_pressed('f6'):
+               print("The action has been stopped.")
+               break
+           x, y = pyautogui.position()
+           pyautogui.click(x, y)
+           time.sleep(delay)
+   auto_click(delay_speed)
   if command == "ai" or command == "aiservice" or command == "artfical intelegent":
     print("under devolopment.")
   if command == "time" or command == "time date" or command == "time and date" or command == "date and time" or command == "date time" or command == "date":
