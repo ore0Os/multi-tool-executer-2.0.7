@@ -253,7 +253,7 @@ if loop == "yes" or loop == "y":
   if command == "stop" or command == "close" or command == "exit" or command == "quit":
     print("exiting...")
     import time
-    time.sleep(1.8)
+    time.sleep(0.5)
     exit()
   else:
     print("enter a valid command!")
