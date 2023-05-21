@@ -200,7 +200,7 @@ if loop == "yes" or loop == "y":
   if command == "auto clicker" or command == "ac":
      import pyautogui
      import keyboard
-     delay_speed = input("selcet the delay speed: ")
+     delay_speed = float(input("selcet the delay speed: "))
      print("the action has been started.")
      def auto_click(delay):
          while True:
