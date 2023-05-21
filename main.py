@@ -200,16 +200,15 @@ if loop == "yes" or loop == "y":
   if command == "auto clicker" or command == "ac":
      import pyautogui
      import keyboard
-
+     print("the action has been started.")
      def auto_click():
          while True:
-             if keyboard.is_pressed('f6'):  # Check if F6 key is pressed
-                break  # Exit the loop if F6 is pressed
-             x, y = pyautogui.position()  # Get current mouse position
-             pyautogui.click(x, y)  # Perform a mouse click at the current position
-
+             if keyboard.is_pressed('f6'):
+                print("the action has been stoped.")
+                break
+             x, y = pyautogui.position()
+             pyautogui.click(x, y)
      auto_click()
-
   if command == "ai" or command == "aiservice" or command == "artfical intelegent":
     print("under devolopment.")
   if command == "time" or command == "time date" or command == "time and date" or command == "date and time" or command == "date time" or command == "date":
