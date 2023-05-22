@@ -22,26 +22,20 @@ membership_status = input("are you an premium member? yes, no: ")
 if membership_status == "yes" or membership_status == "y":
   membership_code = input("enter your membership code: ")
   if membership_code == "2009114":
+    access_status = "granted"
     print("a valid code detected.")
-    print("special functions requast sended.")
-    time.sleep(1)
-    access_selection = input("do you want to enable them? yes, no: ")
-    if access_selection == "yes" or access_selection == "y":
-      access_status = "granted"
-      time.sleep(0.5)
-      print("access granted.")
-    if access_selection == "no" or access_selection == "n":
-       print("access denied.")
-    else:
-       print("inavlid input, selecting the standard access by default.")  
+    print("special access granted.")
+    time.sleep(1) 
   else:
+    access_status = "denied"
     print("invalid code.")
 if membership_status == "no" or membership_status == "n":
   access_status = "denied"
   time.sleep(0.5)
   print("understood, selecting the standard access.") 
 else:
-  print("inavlid input, selecting the standard access by default.") 
+  None
+  #dont mind this.
 loop = input("do you want to loop the command executer? yes, no: ")
 if loop == "yes" or loop == "y":
  while True:
@@ -136,7 +130,7 @@ if loop == "yes" or loop == "y":
       profile.send(random._urandom(10)*1000)
       print(f"send: {i}", end='\r') 
     else:
-      print("you cannot use this command with that standard access.")
+      print("you cannot use this command with the standard access.")
   if command == "disk storage" or command == "disk" or command == "ds":
     import shutil
     def get_disk_usage():
@@ -323,7 +317,7 @@ if loop == "no" or loop == "n":
       profile.send(random._urandom(10)*1000)
       print(f"send: {i}", end='\r')  
     else:
-      print("you cannot use this command with that standard access.")
+      print("you cannot use this command with the standard access.")
   if command == "disk storage" or command == "disk" or command == "ds":
     import shutil
     def get_disk_usage():
