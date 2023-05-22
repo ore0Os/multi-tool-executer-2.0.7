@@ -1,4 +1,4 @@
-to run the script you need to run the following libraries:
+to run the script you need to download the following libraries:
 psutil,
 shutil (should be pre installed),
 wmi,
