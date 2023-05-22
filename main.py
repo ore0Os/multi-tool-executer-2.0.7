@@ -26,10 +26,12 @@ if membership_status == "yes" or membership_status == "y":
     print("special functions requast sended.")
     time.sleep(1)
     access_selection = input("do you want to enable them? yes, no: ")
-    if access_selection == "yes":
+    if access_selection == "yes" or access_selection == "y":
       access_status = "granted"
       time.sleep(0.5)
       print("access granted.")
+    if access_selection == "no" or access_selection == "n":
+       print("access denied.")
     else:
        print("inavlid input, selecting the standard access by default.")  
   else:
