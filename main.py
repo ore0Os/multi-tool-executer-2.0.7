@@ -29,7 +29,9 @@ if membership_status == "yes" or membership_status == "y":
     if access_selection == "yes":
       access_status = "granted"
       time.sleep(0.5)
-      print("access granted.") 
+      print("access granted.")
+    else:
+       print("inavlid input, selecting the standard access by default.")  
   else:
     print("invalid code.")
 if membership_status == "no" or membership_status == "n":
@@ -37,7 +39,7 @@ if membership_status == "no" or membership_status == "n":
   time.sleep(0.5)
   print("understood, selecting the standard access.") 
 else:
-  print("inavlid input, selecting the standard access by default.")   
+  print("inavlid input, selecting the standard access by default.") 
 loop = input("do you want to loop the command executer? yes, no: ")
 if loop == "yes" or loop == "y":
  while True:
