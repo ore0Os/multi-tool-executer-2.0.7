@@ -1,10 +1,6 @@
 from multiprocessing.resource_sharer import stop
 import string
 import time
-from tkinter import END
-from turtle import end_fill
-import colorama
-from colorama import Fore
 import psutil
 import os
 
