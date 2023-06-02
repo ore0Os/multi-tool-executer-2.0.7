@@ -208,6 +208,8 @@ if loop == "yes" or loop == "y":
                 pyautogui.click(x, y)
            elif click == 'double':
                   pyautogui.doubleClick(x, y)
+           else:
+              print("invalid input.")       
            time.sleep(delay)
    auto_click(delay_speed, click_type)
   if command == "ai" or command == "aiservice" or command == "artfical intelegent":
