@@ -196,7 +196,7 @@ if loop == "yes" or loop == "y":
    import keyboard
    import time
    delay_speed = float(input("Select the delay speed (in seconds): "))
-   click_type = input("Select click type ('single' or 'double'): ")
+   click_type = input("Select click type (single or double 'press f6 to stop'): ")
    print("The action has been started.")
    def auto_click(delay, click):
        while True:
@@ -250,7 +250,7 @@ if loop == "yes" or loop == "y":
     print(name)
   if command == "list" or command == "commands list" or command == "commands":
     print("those are the following added commands: ")
-    print("calculator, looped calculator, spam, random password, disk, memory, change my name, print my name, pc proccess, end process, time, shutdown, restart, close.")
+    print("calculator, looped calculator, auto click, spam, random password, disk, memory, change my name, print my name, pc proccess, end process, time, shutdown, restart, close.")
   if command == "stop" or command == "close" or command == "exit" or command == "quit":
     print("exiting...")
     import time
@@ -378,6 +378,25 @@ if loop == "no" or loop == "n":
         print(f"No process with the name {process_name} was found.")
         return False
     end_process_by_name(process_name)
+  if command == "auto clicker" or command == "ac":
+   import pyautogui
+   import keyboard
+   import time
+   delay_speed = float(input("Select the delay speed (in seconds): "))
+   click_type = input("Select click type (single or double 'press f6 to stop'): ")
+   print("The action has been started.")
+   def auto_click(delay, click):
+       while True:
+           if keyboard.is_pressed('f6'):
+              print("The action has been stopped.")
+              break
+           x, y = pyautogui.position()
+           if click == 'single':
+                pyautogui.click(x, y)
+           elif click == 'double':
+                  pyautogui.doubleClick(x, y)
+           time.sleep(delay)
+   auto_click(delay_speed, click_type)  
   if command == "ai" or command == "aiservice" or command == "artfical intelegent":
     print("under devolopment.")  
   if command == "time" or command == "time date" or command == "time and date" or command == "date and time" or command == "date time" or command == "date":
@@ -409,7 +428,7 @@ if loop == "no" or loop == "n":
     os.system("shutdown /r /t 1")   
   if command == "list" or command == "commands list" or command == "commands":
     print("those are the following added commands: ")
-    print("calculator, spam, random password, disk, memory, pc proccess, end process, time, shutdown, close.")
+    print("calculator, auto clicker, spam, random password, disk, memory, pc proccess, end process, time, shutdown, close.")
 print("exiting...")
 import time
 time.sleep(1.8)
