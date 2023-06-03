@@ -173,6 +173,25 @@ if loop == "yes" or loop == "y":
         else:
            print("Unable to retrieve memory information.")
     print_memory_information()
+  if command == "mp3 player" or command == "mp3":
+     import os
+     import pygame
+     import time
+     def play_mp3(file_name, loop=False):
+         pygame.mixer.init()
+         pygame.mixer.music.load(file_name)
+         pygame.mixer.music.play(loops=-1 if loop else 0)
+         while pygame.mixer.music.get_busy():
+             pygame.event.poll()
+             time.sleep(0.1)
+     pygame.display.init()
+     pygame.display.set_mode((200, 200), pygame.HIDDEN)
+     folder_path = input("Enter the folder path containing the MP3 files: ")
+     loop_option = input("Loop the MP3 files? (y/n): ").lower() == "y"
+     mp3_files = [file for file in os.listdir(folder_path) if file.endswith(".mp3")]
+     for file_name in mp3_files:
+         full_path = os.path.join(folder_path, file_name)
+         play_mp3(full_path, loop_option)
   if command == "pc proccess" or command == "proccess" or command == "proc":
     import wmi
     f = wmi.WMI()
@@ -250,7 +269,7 @@ if loop == "yes" or loop == "y":
     print(name)
   if command == "list" or command == "commands list" or command == "commands":
     print("those are the following added commands: ")
-    print("calculator, looped calculator, auto click, spam, random password, disk, memory, change my name, print my name, pc proccess, end process, time, shutdown, restart, close.")
+    print("calculator, looped calculator, auto click, spam, random password, disk, memory, mp3 player, change my name, print my name, pc proccess, end process, time, shutdown, restart, close.")
   if command == "stop" or command == "close" or command == "exit" or command == "quit":
     print("exiting...")
     import time
@@ -360,6 +379,25 @@ if loop == "no" or loop == "n":
         else:
            print("Unable to retrieve memory information.")
     print_memory_information()   
+  if command == "mp3 player" or command == "mp3":
+     import os
+     import pygame
+     import time
+     def play_mp3(file_name, loop=False):
+         pygame.mixer.init()
+         pygame.mixer.music.load(file_name)
+         pygame.mixer.music.play(loops=-1 if loop else 0)
+         while pygame.mixer.music.get_busy():
+             pygame.event.poll()
+             time.sleep(0.1)
+     pygame.display.init()
+     pygame.display.set_mode((200, 200), pygame.HIDDEN)
+     folder_path = input("Enter the folder path containing the MP3 files: ")
+     loop_option = input("Loop the MP3 files? (y/n): ").lower() == "y"
+     mp3_files = [file for file in os.listdir(folder_path) if file.endswith(".mp3")]
+     for file_name in mp3_files:
+         full_path = os.path.join(folder_path, file_name)
+         play_mp3(full_path, loop_option)  
   if command == "pc process" or command == "process" or command == "proc":
     import wmi
     f = wmi.WMI()
@@ -428,7 +466,7 @@ if loop == "no" or loop == "n":
     os.system("shutdown /r /t 1")   
   if command == "list" or command == "commands list" or command == "commands":
     print("those are the following added commands: ")
-    print("calculator, auto clicker, spam, random password, disk, memory, pc proccess, end process, time, shutdown, close.")
+    print("calculator, auto clicker, spam, random password, disk, memory, mp3 player, pc proccess, end process, time, shutdown, close.")
 print("exiting...")
 import time
 time.sleep(1.8)
