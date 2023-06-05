@@ -4,6 +4,7 @@ shutil (should be pre installed),
 wmi,
 pyautogui,
 keyboard,
+pygame (should be pre installed too double check on it)
 
 
 
