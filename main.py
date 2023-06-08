@@ -183,6 +183,8 @@ if loop == "yes" or loop == "y":
          pygame.mixer.music.play(loops=-1 if loop else 0)
      folder_path = input("Enter the folder path containing the MP3 files: ")
      loop_option = input("Loop the MP3 files? (y/n): ").lower() == "y"
+     time.sleep(0.5)
+     print("'z' to pause and 'e' to skip and 'a' to go to the prev mp3 file and 'r' to stop the whole script")
      mp3_files = [file for file in os.listdir(folder_path) if file.endswith(".mp3")]
      current_index = 0 
      is_playing = True 
