@@ -177,27 +177,37 @@ if loop == "yes" or loop == "y":
      import os
      import pygame
      import time
+     import keyboard
      def play_mp3(file_name, loop=False):
-         pygame.mixer.init()
          pygame.mixer.music.load(file_name)
          pygame.mixer.music.play(loops=-1 if loop else 0)
-         while pygame.mixer.music.get_busy():
-             pygame.event.poll()
-             time.sleep(0.1)
-     pygame.display.init()
-     pygame.display.set_mode((200, 200), pygame.HIDDEN)
      folder_path = input("Enter the folder path containing the MP3 files: ")
      loop_option = input("Loop the MP3 files? (y/n): ").lower() == "y"
      mp3_files = [file for file in os.listdir(folder_path) if file.endswith(".mp3")]
-     for file_name in mp3_files:
-         full_path = os.path.join(folder_path, file_name)
-         play_mp3(full_path, loop_option)
-  if command == "pc proccess" or command == "proccess" or command == "proc":
-    import wmi
-    f = wmi.WMI()
-    print("ProcessId  /  Process name")
-    for process in f.Win32_Process():
-     print(f"{process.ProcessId:<10} {process.Name}")
+     current_index = 0 
+     is_playing = True 
+     pygame.init()
+     pygame.mixer.init()
+     play_mp3(os.path.join(folder_path, mp3_files[current_index]), loop_option)
+     while True:
+         if is_playing:
+             if keyboard.is_pressed('z'):
+                 pygame.mixer.music.pause()
+                 is_playing = False
+             elif keyboard.is_pressed('a'):
+                 current_index = (current_index - 1) % len(mp3_files)
+                 play_mp3(os.path.join(folder_path, mp3_files[current_index]), loop_option)
+             elif keyboard.is_pressed('e'):
+                 current_index = (current_index + 1) % len(mp3_files)
+                 play_mp3(os.path.join(folder_path, mp3_files[current_index]), loop_option)
+             elif keyboard.is_pressed('r'):
+                 break
+         else:
+             if keyboard.is_pressed('z'):
+                 pygame.mixer.music.unpause()
+                 is_playing = True
+             elif keyboard.is_pressed('r'):
+                 break
   if command == "end process" or command == "kill process" or command == "kpr":
     import psutil
     process_name = input("proccess: ")
@@ -210,6 +220,9 @@ if loop == "yes" or loop == "y":
         print(f"No process with the name {process_name} was found.")
         return False
     end_process_by_name(process_name)
+  if command == "quran":
+     None
+     #im still cooking
   if command == "auto clicker" or command == "ac":
    import pyautogui
    import keyboard
